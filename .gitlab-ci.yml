@@ -189,6 +189,6 @@ dms_klink_asia_deploy:
     - docker tag $CI_REGISTRY_IMAGE:${CI_BUILD_REF_NAME/v/} dms-staging-environment
     - docker-compose -f docker-compose-kbox.yml -p ${INSTANCE_PREFIX} stop && docker-compose -f docker-compose-kbox.yml -p ${INSTANCE_PREFIX} rm -v -f && docker-compose -f docker-compose-kbox.yml -p ${INSTANCE_PREFIX} up -d frontend
   only:
-    - master
-    - release
+    - '0.18'
+    - tags
 
