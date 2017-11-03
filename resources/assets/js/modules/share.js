@@ -70,7 +70,7 @@ define("modules/share", ["jquery", "DMS","lodash", "combokeys", "language", "swe
 		_switch.find('.c-switch__button--selected').removeClass('c-switch__button--selected');
 		el.addClass('c-switch__button--selected');
 		_actionIsRunning = true;
-		var filtered = _.pluck(_.filter(_items, {'type' : 'document'}), 'id');
+		var filtered = _.map(_.filter(_items, {'type' : 'document'}), 'id');
 
 		var params = {documents:filtered};
 
@@ -217,7 +217,7 @@ define("modules/share", ["jquery", "DMS","lodash", "combokeys", "language", "swe
 		_actionIsRunning = true;
 
 		
-		var filtered = _.pluck(_.filter(_items, {'type' : 'document'}), 'id');
+		var filtered = _.map(_.filter(_items, {'type' : 'document'}), 'id');
 
 		var params = {documents:filtered};
 

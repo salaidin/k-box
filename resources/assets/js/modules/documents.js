@@ -838,7 +838,7 @@ define("modules/documents", ["require", "modernizr", "jquery", "DMS", "modules/s
                             DMS.MessageBox.question('Remove share', 'Remove the sharing from ' + count_msg + '?', 'Unshare!', 'Cancel', function(choice){
                                 
                                 if(choice){
-                                    DMS.Services.Shared.remove(_.pluck(usable_documents, 'share'), function(data){
+                                    DMS.Services.Shared.remove(_.map(usable_documents, 'share'), function(data){
                                         //success
                                         
                                         if(data.status && data.status==='ok'){

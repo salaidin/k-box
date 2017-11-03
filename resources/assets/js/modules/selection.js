@@ -453,7 +453,7 @@ define("modules/selection", ["jquery", "DMS", "combokeys", "lodash"], function (
 			var filtered = _.filter(_selected, {'type' : selectedType});
 			
 			if(property){
-				return _.pluck(filtered, property);
+				return _.map(filtered, property);
 			}
 			
 			return filtered;
@@ -466,7 +466,7 @@ define("modules/selection", ["jquery", "DMS", "combokeys", "lodash"], function (
 		selection: function(property){
 			
 			if(property){
-				return _.pluck(_selected, property);
+				return _.map(_selected, property);
 			}
 			
 			return _selected;
