@@ -349,19 +349,19 @@ Route::get('site/{slug}', [
 
 Route::resource('microsites', '\Klink\DmsMicrosites\Controllers\MicrositeController');
 
-/*
-|--------------------------------------------------------------------------
-| Upload related routes
-|--------------------------------------------------------------------------
-|
-| The new upload mechanism
-|
-*/
+// /*
+// |--------------------------------------------------------------------------
+// | Upload related routes
+// |--------------------------------------------------------------------------
+// |
+// | The new upload mechanism
+// |
+// */
 
-Route::get('/uploads', [
-    'uses' => 'UploadPageController@index',
-    'as' => 'uploads.index',
-]);
+// Route::get('/uploads', [
+//     'uses' => 'UploadPageController@index',
+//     'as' => 'uploads.index',
+// ]);
 
 /*
 |--------------------------------------------------------------------------

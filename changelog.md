@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 - `DocumentsService::constructLocalPathForImport` has been removed
+- Menu entry for the new upload mechanism and disabled the route to reach the upload page. The code behind is still present.
 
 ## [0.18.0] 2017-09-25
 
