@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.18.1] 2017-11-03
+
 ### Added 
 
 - UUID field to File model and database table
