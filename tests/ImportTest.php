@@ -53,7 +53,6 @@ class ImportTest extends BrowserKitTestCase
             [ 'https://www.change.org/p/unfccc-united-nations-framework-convention-on-climate-change-ensure-that-the-impact-of-climate-change-on-mountain-peoples-and-ecosystems-is-fully-addressed-in-the-unfccc-cop21-new-climate-deal?source_location=petitions_share_skip', 'text/html' ],
             [ 'https://www.change.org/p/unfccc-united-nations-framework-convention-on-climate-change-ensure-that-the-impact-of-climate-change-on-mountain-peoples-and-ecosystems-is-fully-addressed-in-the-unfccc-cop21-new-climate-deal?source_location', 'text/html' ],
             [ 'http://klink.asia', 'text/html' ],
-            [ 'http://www.iisd.org/sites/default/files/publications/mainstreaming-climate-change-toolkit-guidebook.pdf', 'application/pdf' ],
         ];
     }
     
