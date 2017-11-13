@@ -10,7 +10,7 @@ stages:
   - deploy
 
 cache:
-  key: "kbox"
+  key: "kbox-0-18"
   paths:
   - .composer-cache/
   - node_modules/ # TODO: cache the NPM cache location

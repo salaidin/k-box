@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7888154034a7984b02626cc56d47b31",
+    "content-hash": "6e2f761ed7b0963885164fe3f36a44ae",
     "packages": [
         {
             "name": "avvertix/laravel-tus-upload",
@@ -1339,34 +1339,33 @@
             "time": "2017-04-20T14:50:49+00:00"
         },
         {
-            "name": "klink/adapterboilerplate",
-            "version": "v3.0.2",
+            "name": "k-box/k-search-client-php",
+            "version": "v2.30.0",
             "source": {
                 "type": "git",
-                "url": "https://git.klink.asia/main/k-search-client-php.git",
-                "reference": "333ec5da618778c072553b01840b242a304e6784"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://build.klink.asia/composer//dist/klink-adapterboilerplate-v3.0.2-53489e.tar",
-                "reference": "333ec5da618778c072553b01840b242a304e6784",
-                "shasum": "f0645406bfb620b12100b1ee3c1896110d0bd5ee"
+                "url": "https://git.klink.asia/main/k-search-client-php",
+                "reference": "d6cc6af2627304777d13043828203145ad15e02c"
             },
             "require": {
                 "ext-curl": "*",
                 "guzzlehttp/guzzle": "~6.2.0",
                 "netresearch/jsonmapper": "~0.10.0",
-                "php": ">=5.5.9",
+                "php": ">=7.0",
                 "psr/log": "~1.0"
             },
             "require-dev": {
                 "jakub-onderka/php-parallel-lint": "~0.9.2",
                 "phpmd/phpmd": "~2.4.3",
-                "phpunit/phpunit": "4.8.*",
+                "phpunit/phpunit": "5.7.*",
                 "sebastian/phpcpd": "~2.0.4",
                 "seld/jsonlint": "~1.4.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.30.x": "2.30.0-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
                     "klink"
@@ -1377,6 +1376,9 @@
                     "test"
                 ]
             },
+            "license": [
+                "AGPL-3.0"
+            ],
             "authors": [
                 {
                     "name": "Alessio Vertemati",
@@ -1394,7 +1396,7 @@
                 "wiki": "https://git.klink.asia/kadapters/adapterboilerplate/wikis/home",
                 "source": "https://git.klink.asia/kadapters/adapterboilerplate"
             },
-            "time": "2017-04-24T00:00:00+00:00"
+            "time": "2017-11-13T00:00:00+00:00"
         },
         {
             "name": "laravel/framework",
@@ -6178,12 +6180,12 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "phpoffice/phpspreadsheet": 20,
-        "avvertix/laravel-tus-upload": 20
+        "avvertix/laravel-tus-upload": 20,
+        "phpoffice/phpspreadsheet": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.6.4"
