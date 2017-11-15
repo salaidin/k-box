@@ -349,6 +349,11 @@ class DocumentDescriptor extends Model
         return $query->where('institution_id', $institution_id)->where('local_document_id', $document_id);
     }
     
+    public function scopeFromLocalDocumentId($query, $document_id)
+    {
+        return $query->where('local_document_id', $document_id);
+    }
+    
     public function scopeFromUser($query, $user_id)
     {
         return $query->where('owner_id', $user_id);
@@ -389,6 +394,11 @@ class DocumentDescriptor extends Model
     public static function findByInstitutionAndDocumentId($institution_id, $id)
     {
         return self::fromKlinkID($institution_id, $id)->first();
+    }
+    
+    public static function findByLocalDocumentId($local_document_id)
+    {
+        return self::fromLocalDocumentId($local_document_id)->first();
     }
 
     /**
@@ -558,7 +568,7 @@ class DocumentDescriptor extends Model
         $local_inst = Institution::findByKlinkID($instance->getInstitutionID());
 
         $cached = self::create([
-            'institution_id' => $local_inst->id,
+            'institution_id' => $local_inst === null ? null : $local_inst->id,
             'local_document_id' => $instance->getLocalDocumentID(),
             'title' => $instance->getTitle(),
             'hash' => $instance->getHash(),

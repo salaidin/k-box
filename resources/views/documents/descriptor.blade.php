@@ -53,7 +53,7 @@
 			'draggable' => false,
 			'selectable' => false,
 			'institution' => $item->getInstitutionId(),
-			
+			'institution_klink_id' => $item->getInstitutionId(),
 			'visibility' => $item->getVisibility(),
 			'is_public' => true,
 			'star' => isset($item->starId) ? $item->starId : false,

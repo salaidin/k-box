@@ -630,7 +630,7 @@ class DocumentsController extends Controller
         try {
             $document = $this->service->getDocument($institution, $local_id);
 
-            return $this->_showPanel($document, $auth()->user());
+            return $this->_showPanel($document, $auth->user());
         } catch (\KlinkException $kex) {
             \Log::error('Document Descriptor showByKlinkId error', ['error' => $kex, 'institution' => $institution, 'local_id' => $local_id]);
             return view('panels.error', ['message' => $kex->getMessage()]);

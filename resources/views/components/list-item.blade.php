@@ -10,6 +10,8 @@
     @if($type!=='group') data-institution="{{$institution}}" @endif
     @if($type!=='group') data-visibility="{{$visibility}}" @endif
     data-type="{{$type}}" 
+    @if(isset($institution_klink_id)) data-inst="{{$institution_klink_id}}"  @endif
+    @if(isset($local_document_id)) data-doc="{{$local_document_id}}" @endif
     @if(isset($drop_action) && $drop_action) data-drop="true" data-drop-action="{{$drop_action}}" @endif
     @if(isset($star) && $star) data-star-id="{{$star}}" @endif 
     @if(isset($share) && $share) data-shareid="{{$share}}" @endif 

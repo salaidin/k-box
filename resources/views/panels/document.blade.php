@@ -40,7 +40,7 @@
 	</div>
 
 </div>
-@if($item->isFileUploadComplete())
+@if($item->isPublic() || $item->isFileUploadComplete())
 <div class="c-panel__actions">
 
     
