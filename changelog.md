@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Use `k-box/k-search-client-php` version 2.30 instead of `klink/adapterboilerplate`
 
+### Fixed
+
+- PDF preview not showing on Chrome and Firefox
+
 ## [0.18.1] 2017-11-03
 
 ### Added 
