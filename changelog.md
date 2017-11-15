@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - PDF preview not showing on Chrome and Firefox
+- Loading details panel of public document
 
 ## [0.18.1] 2017-11-03
 
