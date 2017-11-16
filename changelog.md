@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.18.2] 2017-11-16
+
 ### Changed
 
 - Use `k-box/k-search-client-php` version 2.30 instead of `klink/adapterboilerplate`
