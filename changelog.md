@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - PDF preview not showing on Chrome and Firefox
 - Loading details panel of public document
-- Breacrumbs now shows only the parent collection that the user has access to, if 
+- Breadcrumbs now shows only the parent collection that the user has access to, if 
   a collection is shared
 
 ## [0.18.1] 2017-11-03
