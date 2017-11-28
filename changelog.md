@@ -49,6 +49,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Showing microsite creation/edit only if the project administrator is connected
 - Fixed display of microsite view button if no microsite is configured for the project
 - Microsite section only visible if microsite is available or the logged in user is the project manager
+- Showing a proper error message if the user is trying to access a non existent file
 
 ### Removed
 
