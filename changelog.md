@@ -46,6 +46,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Show the share item in the context menu only if the user can share, as well as on the details panel
 - Document sidebar not appearing on Internet Explorer 9-11
 - Used lodash map instead of pluck
+- Showing microsite creation/edit only if the project administrator is connected
+- Fixed display of microsite view button if no microsite is configured for the project
+- Microsite section only visible if microsite is available or the logged in user is the project manager
 
 ### Removed
 
