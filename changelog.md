@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fixed display of microsite view button if no microsite is configured for the project
 - Microsite section only visible if microsite is available or the logged in user is the project manager
 - Showing a proper error message if the user is trying to access a non existent file
+- Recent page not loading if user has only recent shares
 
 ## [0.18.2] 2017-11-16
 
