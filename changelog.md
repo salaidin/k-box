@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Microsite section only visible if microsite is available or the logged in user is the project manager
 - Showing a proper error message if the user is trying to access a non existent file
 - Recent page not loading if user has only recent shares
+- Loading of a trashed document details panel
 
 ## [0.18.2] 2017-11-16
 
