@@ -767,8 +767,6 @@ class DocumentsService
         try {
             $returned_descriptor = $this->reindexDocument($descriptor);
 
-            \Log::info('Core restoreDocument', ['context' => 'DocumentsService', 'response' => $returned_descriptor]);
-
             \Cache::flush();
         } catch (\KlinkException $kex) {
             if ($kex->getCode() != 404) {
