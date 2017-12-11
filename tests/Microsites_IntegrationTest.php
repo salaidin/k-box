@@ -3,7 +3,7 @@
 use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-use KlinkDMS\Capability;
+use KBox\Capability;
 use Klink\DmsMicrosites\Microsite;
 use Klink\DmsMicrosites\MicrositeContent;
 
@@ -149,7 +149,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
      */
     public function testMicrositeCreateActionsOnProjectShowPage()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $this->actingAs($project->manager()->first());
         
@@ -172,7 +172,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeManageActionsVisibilityOnProjectShowPage()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -193,7 +193,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeCreateInvokedWithoutProjectParameter()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -214,7 +214,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     {
         $user = $this->createAdminUser(['institution_id' => null]);
         
-        $project = factory('KlinkDMS\Project')->create(['user_id' => $user->id]);
+        $project = factory('KBox\Project')->create(['user_id' => $user->id]);
         
         \Session::start();
         
@@ -232,7 +232,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeCreateOnProjectWithExistingMicrosite()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -256,7 +256,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeStoreWithValidData()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -308,7 +308,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeStoreWithValidData_NoLogo()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -364,7 +364,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
      */
     public function testMicrositeStoreWithInvalidData($request_data, $attribute, $error_type)
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         $project_manager = $project->manager()->first();
         
         \Session::start();
@@ -418,7 +418,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
      */
     public function testMicrositeLanguageSwitch($default_lang, $switch_to)
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -482,7 +482,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeStoreOnPojectWithExistingMicrosite()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -523,7 +523,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeEditFromProjectShowPage()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -546,7 +546,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeUpdateWithValidData()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -650,7 +650,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     
     public function testMicrositeDeleteWithValidData()
     {
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         
@@ -682,7 +682,7 @@ class Microsites_IntegrationTest extends BrowserKitTestCase
     {
         $user = $this->createUser($caps);
         
-        $project = factory('KlinkDMS\Project')->create();
+        $project = factory('KBox\Project')->create();
         
         $project_manager = $project->manager()->first();
         

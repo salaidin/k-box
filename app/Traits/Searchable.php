@@ -1,11 +1,11 @@
 <?php
 
-namespace KlinkDMS\Traits;
+namespace KBox\Traits;
 
 use BadMethodCallException;
 use Exception;
 use Klink\DmsSearch\SearchRequest;
-use KlinkDMS\Pagination\SearchResultsPaginator;
+use KBox\Pagination\SearchResultsPaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 

@@ -1,7 +1,7 @@
 <?php
 
-use KlinkDMS\User;
-use KlinkDMS\Capability;
+use KBox\User;
+use KBox\Capability;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 

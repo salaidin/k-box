@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use KlinkDMS\DocumentDescriptor;
-use KlinkDMS\Option;
-use KlinkDMS\Console\Commands\DmsUpdateCommand;
+use KBox\DocumentDescriptor;
+use KBox\Option;
+use KBox\Console\Commands\DmsUpdateCommand;
 
 class DmsUpdateCommandTest extends TestCase
 {
@@ -19,7 +19,7 @@ class DmsUpdateCommandTest extends TestCase
     {
         $this->withKlinkAdapterMock();
 
-        $docs = factory('KlinkDMS\DocumentDescriptor', 3)->create(['uuid' => "00000000-0000-0000-0000-000000000000"]);
+        $docs = factory('KBox\DocumentDescriptor', 3)->create(['uuid' => "00000000-0000-0000-0000-000000000000"]);
 
         $doc_ids = $docs->pluck('id')->toArray();
         

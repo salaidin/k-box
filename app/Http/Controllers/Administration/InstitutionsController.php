@@ -1,14 +1,14 @@
 <?php
 
-namespace KlinkDMS\Http\Controllers\Administration;
+namespace KBox\Http\Controllers\Administration;
 
-use KlinkDMS\DocumentDescriptor;
-use KlinkDMS\User;
-use KlinkDMS\Http\Controllers\Controller;
-use KlinkDMS\Institution;
+use KBox\DocumentDescriptor;
+use KBox\User;
+use KBox\Http\Controllers\Controller;
+use KBox\Institution;
 use Klink\DmsAdapter\KlinkAdapter;
 use Illuminate\Contracts\Auth\Guard as AuthGuard;
-use KlinkDMS\Http\Requests\InstitutionRequest;
+use KBox\Http\Requests\InstitutionRequest;
 
 /**
  * Check and create the institutions reference

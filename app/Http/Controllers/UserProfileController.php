@@ -1,12 +1,12 @@
 <?php
 
-namespace KlinkDMS\Http\Controllers;
+namespace KBox\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Guard as Auth;
-use KlinkDMS\User;
-use KlinkDMS\Http\Requests\ProfileUpdateRequest;
+use KBox\User;
+use KBox\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\JsonResponse;
-use KlinkDMS\Http\Requests\UserOptionUpdateRequest;
+use KBox\Http\Requests\UserOptionUpdateRequest;
 
 class UserProfileController extends Controller
 {

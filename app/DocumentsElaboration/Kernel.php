@@ -1,8 +1,8 @@
 <?php
 
-namespace KlinkDMS\DocumentsElaboration;
+namespace KBox\DocumentsElaboration;
 
-use KlinkDMS\DocumentDescriptor;
+use KBox\DocumentDescriptor;
 use Illuminate\Pipeline\Pipeline;
 
 class Kernel
@@ -14,14 +14,14 @@ class Kernel
      * @var array
      */
     protected $actions = [
-        \KlinkDMS\DocumentsElaboration\Actions\AddToSearch::class,
-        \KlinkDMS\DocumentsElaboration\Actions\GenerateThumbnail::class,
+        \KBox\DocumentsElaboration\Actions\AddToSearch::class,
+        \KBox\DocumentsElaboration\Actions\GenerateThumbnail::class,
     ];
 
     /**
      *
-     * @param \KlinkDMS\DocumentDescriptor $documentDescriptor
-     * @return \KlinkDMS\DocumentDescriptor
+     * @param \KBox\DocumentDescriptor $documentDescriptor
+     * @return \KBox\DocumentDescriptor
      */
     public function handle($documentDescriptor)
     {

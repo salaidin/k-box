@@ -1,6 +1,6 @@
 <?php
 
-namespace KlinkDMS\Providers;
+namespace KBox\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'KlinkDMS\Http\Controllers';
+    protected $namespace = 'KBox\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

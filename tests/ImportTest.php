@@ -1,17 +1,17 @@
 <?php
 
 use Tests\BrowserKitTestCase;
-use KlinkDMS\Import;
+use KBox\Import;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use KlinkDMS\User;
-use KlinkDMS\File;
-use KlinkDMS\Capability;
-use KlinkDMS\DocumentDescriptor;
-use KlinkDMS\Project;
-use KlinkDMS\Jobs\ImportCommand;
+use KBox\User;
+use KBox\File;
+use KBox\Capability;
+use KBox\DocumentDescriptor;
+use KBox\Project;
+use KBox\Jobs\ImportCommand;
 
 use Illuminate\Foundation\Application;
-use KlinkDMS\Console\Commands\DmsImportCommand;
+use KBox\Console\Commands\DmsImportCommand;
 
 class ImportTest extends BrowserKitTestCase
 {
@@ -135,7 +135,7 @@ class ImportTest extends BrowserKitTestCase
         // create an ImportJob and run it
         $this->withKlinkAdapterFake();
 
-        $uuid = (new \KlinkDMS\File)->resolveUuid()->toString();
+        $uuid = (new \KBox\File)->resolveUuid()->toString();
         
         $save_path = date('Y').'/'.date('m').'/'.$uuid.'/'.md5($url).'.html';
         
@@ -146,7 +146,7 @@ class ImportTest extends BrowserKitTestCase
         
         $user = $this->createAdminUser();
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'mime_type' => '',
             'size' => 0,
             'uuid' => $uuid,
@@ -155,7 +155,7 @@ class ImportTest extends BrowserKitTestCase
             'original_uri' => $url
         ]);
         
-        $import = factory('KlinkDMS\Import')->create([
+        $import = factory('KBox\Import')->create([
             'file_id' => $file->id,
             'user_id' => $user->id,
             'is_remote' => true
@@ -167,9 +167,9 @@ class ImportTest extends BrowserKitTestCase
         $saved_import = Import::with('file')->findOrFail($import->id);
         
         
-        $this->assertEquals(KlinkDMS\Import::STATUS_COMPLETED, $saved_import->status, 'Import not completed');
+        $this->assertEquals(KBox\Import::STATUS_COMPLETED, $saved_import->status, 'Import not completed');
         
-        $this->assertEquals(KlinkDMS\Import::MESSAGE_COMPLETED, $saved_import->status_message);
+        $this->assertEquals(KBox\Import::MESSAGE_COMPLETED, $saved_import->status_message);
         
         $this->assertTrue(file_exists($saved_import->file->absolute_path), "File do not exists");
         
@@ -194,7 +194,7 @@ class ImportTest extends BrowserKitTestCase
         
         $user = $this->createAdminUser();
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'mime_type' => '',
             'size' => 0,
             'path' => $save_path,
@@ -202,7 +202,7 @@ class ImportTest extends BrowserKitTestCase
             'original_uri' => $url
         ]);
         
-        $import = factory('KlinkDMS\Import')->create([
+        $import = factory('KBox\Import')->create([
             'file_id' => $file->id,
             'user_id' => $user->id,
             'is_remote' => true
@@ -226,7 +226,7 @@ class ImportTest extends BrowserKitTestCase
         
         $user = $this->createAdminUser();
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'mime_type' => '',
             'size' => 0,
             'path' => $save_path,
@@ -234,7 +234,7 @@ class ImportTest extends BrowserKitTestCase
             'original_uri' => $url
         ]);
         
-        $import = factory('KlinkDMS\Import')->create([
+        $import = factory('KBox\Import')->create([
             'file_id' => $file->id,
             'user_id' => $user->id,
             'is_remote' => true,
@@ -268,7 +268,7 @@ class ImportTest extends BrowserKitTestCase
         
         $user = $this->createAdminUser();
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'mime_type' => '',
             'size' => 0,
             'path' => $save_path,
@@ -276,7 +276,7 @@ class ImportTest extends BrowserKitTestCase
             'original_uri' => $url
         ]);
         
-        $import = factory('KlinkDMS\Import')->create([
+        $import = factory('KBox\Import')->create([
             'file_id' => $file->id,
             'user_id' => $user->id,
             'is_remote' => true,
@@ -312,7 +312,7 @@ class ImportTest extends BrowserKitTestCase
         $user = $this->createAdminUser();
         $user2 = $this->createUser(Capability::$PROJECT_MANAGER);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'mime_type' => '',
             'size' => 0,
             'path' => $save_path,
@@ -320,7 +320,7 @@ class ImportTest extends BrowserKitTestCase
             'original_uri' => $url
         ]);
         
-        $import = factory('KlinkDMS\Import')->create([
+        $import = factory('KBox\Import')->create([
             'file_id' => $file->id,
             'user_id' => $user->id,
             'is_remote' => true,
@@ -356,7 +356,7 @@ class ImportTest extends BrowserKitTestCase
         
         $user = $this->createAdminUser();
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'mime_type' => '',
             'size' => 0,
             'path' => $save_path,
@@ -364,7 +364,7 @@ class ImportTest extends BrowserKitTestCase
             'original_uri' => $url
         ]);
         
-        $import = factory('KlinkDMS\Import')->create([
+        $import = factory('KBox\Import')->create([
             'file_id' => $file->id,
             'user_id' => $user->id,
             'is_remote' => true
@@ -540,7 +540,7 @@ class ImportTest extends BrowserKitTestCase
     }
     
     /**
-     * @expectedException \KlinkDMS\Exceptions\ForbiddenException
+     * @expectedException \KBox\Exceptions\ForbiddenException
      * @expectedExceptionMessage The user must be at least a project administrator
      */
     public function testImportFromSameFolderViaArtisanCommandWithWrongUserParameter()
@@ -580,7 +580,7 @@ class ImportTest extends BrowserKitTestCase
     {
         $preexisting_import = Import::all()->pluck('id');
 
-        Queue::shouldReceive('push')->once()->with(\Mockery::type('KlinkDMS\Jobs\ImportCommand'));
+        Queue::shouldReceive('push')->once()->with(\Mockery::type('KBox\Jobs\ImportCommand'));
 
         $user = $this->createAdminUser();
 

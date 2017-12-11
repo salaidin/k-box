@@ -1,6 +1,6 @@
 <?php
 
-use KlinkDMS\Institution;
+use KBox\Institution;
 
 use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

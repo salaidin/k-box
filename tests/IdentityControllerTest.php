@@ -3,8 +3,8 @@
 use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-use KlinkDMS\Option;
-use KlinkDMS\Capability;
+use KBox\Option;
+use KBox\Capability;
 
 class IdentityControllerTest extends BrowserKitTestCase
 {
@@ -47,7 +47,7 @@ class IdentityControllerTest extends BrowserKitTestCase
 
     public function testContactsSuggestionBasedOnInstitution()
     {
-        $institution = factory('KlinkDMS\Institution')->create([
+        $institution = factory('KBox\Institution')->create([
             'klink_id' => \Config::get('dms.institutionID')
         ]);
 
@@ -90,7 +90,7 @@ class IdentityControllerTest extends BrowserKitTestCase
     
     public function testContactsAreSaved()
     {
-        $institution = factory('KlinkDMS\Institution')->create([
+        $institution = factory('KBox\Institution')->create([
             'klink_id' => \Config::get('dms.institutionID')
         ]);
 
@@ -149,7 +149,7 @@ class IdentityControllerTest extends BrowserKitTestCase
 
     public function testContactsAreSavedWithOnlyRequired()
     {
-        $institution = factory('KlinkDMS\Institution')->create([
+        $institution = factory('KBox\Institution')->create([
             'klink_id' => \Config::get('dms.institutionID')
         ]);
 
@@ -197,7 +197,7 @@ class IdentityControllerTest extends BrowserKitTestCase
     }
     public function testContactsRequiredValidation()
     {
-        $institution = factory('KlinkDMS\Institution')->create([
+        $institution = factory('KBox\Institution')->create([
             'klink_id' => \Config::get('dms.institutionID')
         ]);
 

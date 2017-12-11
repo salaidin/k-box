@@ -2,8 +2,8 @@
 
 namespace Klink\DmsAdapter;
 
-use KlinkDMS\Institution;
-use KlinkDMS\Option;
+use KBox\Institution;
+use KBox\Option;
 use Illuminate\Support\Collection;
 
 use Klink\DmsAdapter\Contracts\KlinkAdapter as AdapterContract;
@@ -151,7 +151,7 @@ class KlinkAdapter implements AdapterContract
     /**
      * Retrieve an institution given its K-Link identifier
      * @param  string $klink_id the K-Link Id
-     * @return \KlinkDMS\Institution|null the instance of Institution that corresponds to the given id or null if the institution is unknown or the id is not valid
+     * @return \KBox\Institution|null the instance of Institution that corresponds to the given id or null if the institution is unknown or the id is not valid
      */
     private function getInstitution($klink_id, $default = null)
     {

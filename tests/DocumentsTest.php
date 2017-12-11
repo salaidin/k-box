@@ -1,13 +1,13 @@
 <?php
 
 use Laracasts\TestDummy\Factory;
-use KlinkDMS\User;
-use KlinkDMS\File;
-use KlinkDMS\Capability;
-use KlinkDMS\DocumentDescriptor;
-use KlinkDMS\Project;
+use KBox\User;
+use KBox\File;
+use KBox\Capability;
+use KBox\DocumentDescriptor;
+use KBox\Project;
 use Carbon\Carbon;
-use KlinkDMS\Flags;
+use KBox\Flags;
 
 use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -121,12 +121,12 @@ class DocumentsTest extends BrowserKitTestCase
         
         $user = $this->createAdminUser();
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id,
         ]);
@@ -161,12 +161,12 @@ class DocumentsTest extends BrowserKitTestCase
 
         $user = $this->createUser($caps);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id,
         ]);
@@ -198,12 +198,12 @@ class DocumentsTest extends BrowserKitTestCase
         $user = $this->createUser($caps);
         $user2 = $this->createUser($caps);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id,
         ]);
@@ -233,12 +233,12 @@ class DocumentsTest extends BrowserKitTestCase
         
         $user = $this->createUser($caps);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id
         ]);
@@ -266,7 +266,7 @@ class DocumentsTest extends BrowserKitTestCase
      */
     public function testDocumentUpdateMakePublicFromEditPage($caps)
     {
-        \KlinkDMS\Option::put(\KlinkDMS\Option::PUBLIC_CORE_ENABLED, true);
+        \KBox\Option::put(\KBox\Option::PUBLIC_CORE_ENABLED, true);
 
         $this->withKlinkAdapterFake();
         
@@ -315,12 +315,12 @@ class DocumentsTest extends BrowserKitTestCase
 
         $user = $this->createUser($caps);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id,
             'is_public' => true,
@@ -359,12 +359,12 @@ class DocumentsTest extends BrowserKitTestCase
 
         $user = $this->createUser($caps);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id,
             'is_public' => true,
@@ -409,12 +409,12 @@ class DocumentsTest extends BrowserKitTestCase
             'password' => bcrypt($user_password)
         ]);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id
         ]);
@@ -458,12 +458,12 @@ class DocumentsTest extends BrowserKitTestCase
             'password' => bcrypt($user_password)
         ]);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id
         ]);
@@ -498,12 +498,12 @@ class DocumentsTest extends BrowserKitTestCase
             'password' => bcrypt($user_password)
         ]);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id
         ]);
@@ -550,12 +550,12 @@ class DocumentsTest extends BrowserKitTestCase
             'password' => bcrypt($user_password)
         ]);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $owner->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $owner->id,
             'file_id' => $file->id
         ]);
@@ -583,25 +583,25 @@ class DocumentsTest extends BrowserKitTestCase
     }
     
     /**
-     * Test the conversion from KlinkDMS\DocumentDescriptor to \KlinkDocumentDescriptor
+     * Test the conversion from KBox\DocumentDescriptor to \KlinkDocumentDescriptor
      * @dataProvider vibility_provider
      */
     public function testDocumentDescriptorToKlinkDocumentDescriptor($visibility)
     {
         $this->withKlinkAdapterFake();
         
-        $institution = factory('KlinkDMS\Institution')->create();
+        $institution = factory('KBox\Institution')->create();
         
         $user = $this->createUser(Capability::$PROJECT_MANAGER, [
             'institution_id' => $institution->id
         ]);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id,
             'hash' => $file->hash,
@@ -638,26 +638,26 @@ class DocumentsTest extends BrowserKitTestCase
     }
     
     /**
-     * Test the conversion from KlinkDMS\DocumentDescriptor to \KlinkDocumentDescriptor
+     * Test the conversion from KBox\DocumentDescriptor to \KlinkDocumentDescriptor
      * @dataProvider vibility_provider
      */
     public function testDocumentDescriptorToKlinkDocumentDescriptorWhenUserChangeAffiliation($visibility)
     {
         $this->withKlinkAdapterFake();
         
-        $institution = factory('KlinkDMS\Institution')->create();
-        $institution2 = factory('KlinkDMS\Institution')->create();
+        $institution = factory('KBox\Institution')->create();
+        $institution2 = factory('KBox\Institution')->create();
         
         $user = $this->createUser(Capability::$PROJECT_MANAGER, [
             'institution_id' => $institution->id
         ]);
         
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'institution_id' => $institution->id,
             'file_id' => $file->id,
@@ -701,19 +701,19 @@ class DocumentsTest extends BrowserKitTestCase
     {
         $fake = $this->withKlinkAdapterFake();
         
-        $institution = factory('KlinkDMS\Institution')->create();
-        $institution2 = factory('KlinkDMS\Institution')->create();
+        $institution = factory('KBox\Institution')->create();
+        $institution2 = factory('KBox\Institution')->create();
         
         $user = $this->createUser(Capability::$PROJECT_MANAGER, [
             'institution_id' => $institution->id
         ]);
                 
-        $file = factory('KlinkDMS\File')->create([
+        $file = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => ''
         ]);
         
-        $doc = factory('KlinkDMS\DocumentDescriptor')->create([
+        $doc = factory('KBox\DocumentDescriptor')->create([
             'owner_id' => $user->id,
             'file_id' => $file->id,
             'hash' => $file->hash,
@@ -789,7 +789,7 @@ class DocumentsTest extends BrowserKitTestCase
     }
 
     /**
-     * @expectedException KlinkDMS\Exceptions\ForbiddenException
+     * @expectedException KBox\Exceptions\ForbiddenException
      */
     public function testDocumentService_deleteDocument_forbidden()
     {
@@ -856,7 +856,7 @@ class DocumentsTest extends BrowserKitTestCase
     }
 
     /**
-     * @expectedException KlinkDMS\Exceptions\ForbiddenException
+     * @expectedException KBox\Exceptions\ForbiddenException
      */
     public function testDocumentService_permanentlyDeleteDocument_forbidden()
     {
@@ -975,14 +975,14 @@ class DocumentsTest extends BrowserKitTestCase
         
         $file = $descr->file;
 
-        $revision_of_revision = factory('KlinkDMS\File')->create([
+        $revision_of_revision = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => '',
             'path' => $file->path,
             'revision_of' => null,
         ]);
 
-        $revision = factory('KlinkDMS\File')->create([
+        $revision = factory('KBox\File')->create([
             'user_id' => $user->id,
             'original_uri' => '',
             'path' => $file->path,
@@ -1054,7 +1054,7 @@ class DocumentsTest extends BrowserKitTestCase
         // is internal to the page view, therefore already rendered when the response ends
 
         $view = $this->response->original; // is a view
-        $composer = app('KlinkDMS\Http\Composers\DocumentsComposer');
+        $composer = app('KBox\Http\Composers\DocumentsComposer');
         $composer->facets($view);
         $this->response->original = $view;
 
@@ -1224,11 +1224,11 @@ class DocumentsTest extends BrowserKitTestCase
     {
         Flags::enable(Flags::UNIFIED_SEARCH);
 
-        $docs = factory('KlinkDMS\DocumentDescriptor', 10)->create();
+        $docs = factory('KBox\DocumentDescriptor', 10)->create();
 
         $mock = $this->withKlinkAdapterMock();
 
-        $mock->shouldReceive('institutions')->andReturn(factory('KlinkDMS\Institution')->make());
+        $mock->shouldReceive('institutions')->andReturn(factory('KBox\Institution')->make());
         
         $mock->shouldReceive('isNetworkEnabled')->andReturn(false);
 
@@ -1274,7 +1274,7 @@ class DocumentsTest extends BrowserKitTestCase
 
         $mock = $this->withKlinkAdapterMock();
 
-        $mock->shouldReceive('institutions')->andReturn(factory('KlinkDMS\Institution')->make());
+        $mock->shouldReceive('institutions')->andReturn(factory('KBox\Institution')->make());
         
         $mock->shouldReceive('isNetworkEnabled')->andReturn(false);
 

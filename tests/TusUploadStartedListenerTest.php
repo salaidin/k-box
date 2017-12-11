@@ -4,10 +4,10 @@ use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Avvertix\TusUpload\Events\TusUploadStarted;
 use Avvertix\TusUpload\TusUpload;
-use KlinkDMS\Listeners\TusUploadStartedHandler;
+use KBox\Listeners\TusUploadStartedHandler;
 use Carbon\Carbon;
-use KlinkDMS\DocumentDescriptor;
-use KlinkDMS\File;
+use KBox\DocumentDescriptor;
+use KBox\File;
 
 class TusUploadStartedListenerTest extends BrowserKitTestCase
 {

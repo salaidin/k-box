@@ -1,12 +1,12 @@
 <?php
 
-use KlinkDMS\User;
-use KlinkDMS\Capability;
+use KBox\User;
+use KBox\Capability;
 
 use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Notification;
-use KlinkDMS\Notifications\UserCreatedNotification;
+use KBox\Notifications\UserCreatedNotification;
 
 /**
  * Tests the UserAdministrationController

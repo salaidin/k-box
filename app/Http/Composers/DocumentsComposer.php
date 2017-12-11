@@ -1,12 +1,12 @@
 <?php
 
-namespace KlinkDMS\Http\Composers;
+namespace KBox\Http\Composers;
 
-use KlinkDMS\Capability;
-use KlinkDMS\DocumentDescriptor;
-use KlinkDMS\File;
-use KlinkDMS\Group;
-use KlinkDMS\Project;
+use KBox\Capability;
+use KBox\DocumentDescriptor;
+use KBox\File;
+use KBox\Group;
+use KBox\Project;
 
 use Illuminate\Contracts\View\View;
 
@@ -174,7 +174,7 @@ class DocumentsComposer
                 // if($document->isMine()){
                 // // the document is shared by me
 
-                //     $existing_shares = $document->shares()->sharedByMe($auth_user)->where('sharedwith_type', 'KlinkDMS\User')->count();
+                //     $existing_shares = $document->shares()->sharedByMe($auth_user)->where('sharedwith_type', 'KBox\User')->count();
                 //     $users_from_projects = $this->documents->getUsersWithAccess($document, $auth_user)->count();
     
                 //     $view->with('access_by_count', $existing_shares+$users_from_projects);
@@ -450,7 +450,7 @@ if ($is_projectspage && (! $grp->is_private && ! $show_personal_collections_in_f
                 if ($group_facet->count > 0) {
                     if (starts_with($group_facet->term, '0:')) {
                         // private
-                        $private[] = \KlinkDMS\Group::findOrFail(str_replace('0:', '', $group_facet->term));
+                        $private[] = \KBox\Group::findOrFail(str_replace('0:', '', $group_facet->term));
                     } elseif (starts_with($group_facet->term, $auth_user->id.':')) {
                         //personal
                         $personal[] = $group_facet;

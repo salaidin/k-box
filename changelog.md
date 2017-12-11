@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Changed the namespace from `KlinkDMS` to `KBox`
+
 ### Fixed
 
 - Showing microsite creation/edit only if the project administrator is connected

@@ -1,8 +1,8 @@
 <?php
 
-use KlinkDMS\User;
-use KlinkDMS\Capability;
-use KlinkDMS\Shared;
+use KBox\User;
+use KBox\Capability;
+use KBox\Shared;
 
 use Tests\BrowserKitTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -137,17 +137,17 @@ class UsersTest extends BrowserKitTestCase
 //
 // 		$user = $this->createAdminUser();
 //
-// 		$starred = Factory::create('KlinkDMS\Starred', ['user_id' => $user->id]);
+// 		$starred = Factory::create('KBox\Starred', ['user_id' => $user->id]);
 //
-// 		$groups = Factory::create('KlinkDMS\PeopleGroup', ['user_id' => $user->id]);
+// 		$groups = Factory::create('KBox\PeopleGroup', ['user_id' => $user->id]);
 //
-// 		$docs = Factory::create('KlinkDMS\DocumentDescriptor', ['owner_id' => $user->id]);
+// 		$docs = Factory::create('KBox\DocumentDescriptor', ['owner_id' => $user->id]);
 //
-// 		$searches = Factory::create('KlinkDMS\RecentSearch', ['user_id' => $user->id]);
+// 		$searches = Factory::create('KBox\RecentSearch', ['user_id' => $user->id]);
 //
-// 		$shared = Factory::create('KlinkDMS\Shared', ['user_id' => $user->id]);
+// 		$shared = Factory::create('KBox\Shared', ['user_id' => $user->id]);
 //
-// 		$shared_groups = Factory::create('KlinkDMS\Shared', ['token' => 'shared_group', 'user_id' => $user->id, 'sharedwith_id' => $groups->id, 'sharedwith_type' =>'KlinkDMS\PeopleGroup']);
+// 		$shared_groups = Factory::create('KBox\Shared', ['token' => 'shared_group', 'user_id' => $user->id, 'sharedwith_id' => $groups->id, 'sharedwith_type' =>'KBox\PeopleGroup']);
 //
 // 		$user = $user->fresh();
 //

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use KlinkDMS\File;
+use KBox\File;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Storage;
 
