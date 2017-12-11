@@ -348,7 +348,7 @@ class DmsUpdateCommand extends Command
 
         // generate the UUID for the private DocumentDescriptor that don't have it
         $this->write('  <comment>Generating UUIDs for existing Document Descriptors...</comment>');
-        $count_generated = $this->generateDocumentsUuid();
+        $count_generated = $this->generateDocumentsUuid(100);
         if ($count_generated > 0) {
             $this->write("  - <comment>Generated {$count_generated} UUIDs.</comment>");
         }
@@ -380,11 +380,9 @@ class DmsUpdateCommand extends Command
         return $migrate_result;
     }
 
-    private function generateDocumentsUuid()
+    private function generateDocumentsUuid($chunkSize = 10)
     {
-        $docs = DocumentDescriptor::local()->withNullUuid()->get();
-
-        $count = $docs->count();
+        $count = DocumentDescriptor::local()->count();
 
         if ($count === 0) {
             return 0;
@@ -394,16 +392,20 @@ class DmsUpdateCommand extends Command
 
         $zero_uuid = Uuid::fromString("00000000-0000-0000-0000-000000000000");
 
-        $docs->each(function ($doc) use (&$counter, $zero_uuid) {
-            $current = Uuid::fromString($doc->uuid);
-
-            if ($current->equals($zero_uuid) || ! Uuid::isValid($doc->uuid)) {
-                $doc->uuid = Uuid::{$doc->resolveUuidVersion()}()->toString();
-                //temporarly disable the automatic upgrade of the updated_at field
-                $doc->timestamps = false;
-
-                $doc->save();
-                $counter++;
+        DocumentDescriptor::local()->chunk($chunkSize, function ($documents) use (&$counter, $zero_uuid) {
+            foreach ($documents as $doc) {
+                $is_current_valid = Uuid::isValid($doc->uuid);
+                $current = $is_current_valid ? Uuid::fromString($doc->uuid) : false;
+                
+                if (($is_current_valid && $current->equals($zero_uuid)) ||
+                     ! $is_current_valid ||
+                    ($is_current_valid && $current && $current->getVersion() !== 4)) {
+                    $doc->uuid = Uuid::{$doc->resolveUuidVersion()}()->getBytes();
+                    //temporarly disable the automatic upgrade of the updated_at field
+                    $doc->timestamps = false;
+                    $doc->save();
+                    $counter++;
+                }
             }
         });
         

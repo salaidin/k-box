@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use KBox\DocumentDescriptor;
 use KBox\Option;
+use Ramsey\Uuid\Uuid;
 use KBox\Console\Commands\DmsUpdateCommand;
 
 class DmsUpdateCommandTest extends TestCase
@@ -19,7 +20,8 @@ class DmsUpdateCommandTest extends TestCase
     {
         $this->withKlinkAdapterMock();
 
-        $docs = factory('KBox\DocumentDescriptor', 3)->create(['uuid' => "00000000-0000-0000-0000-000000000000"]);
+        $docs = factory('KBox\DocumentDescriptor', 11)->create(['uuid' => "00000000-0000-0000-0000-000000000000"]);
+        $v3_docs = factory('KBox\DocumentDescriptor')->create(['uuid' => "39613931-3436-3066-2d31-3533322d3466"]);
 
         $doc_ids = $docs->pluck('id')->toArray();
         
@@ -34,11 +36,16 @@ class DmsUpdateCommandTest extends TestCase
 
         $updated = $this->invokePrivateMethod($command, 'generateDocumentsUuid');
 
-        $this->assertEquals(3, $updated, 'Not all documents have been updated');
+        $this->assertEquals(12, $updated, 'Not all documents have been updated');
         
-        $ret = DocumentDescriptor::local()->whereIn('id', $doc_ids)->get(['id', 'uuid']);
+        $ret = DocumentDescriptor::local()->whereIn('id', array_merge($doc_ids, [$v3_docs->id]))->get();
 
-        $this->assertEquals(3, $ret->count(), 'Not found the same documents originally created');
+        $this->assertEquals(12, $ret->count(), 'Not found the same documents originally created');
+
+        $ret->each(function ($f) {
+            $this->assertTrue(Uuid::isValid($f->uuid));
+            $this->assertEquals(4, Uuid::fromString($f->uuid)->getVersion());
+        });
 
         //second invokation of the same command
 
