@@ -27,14 +27,12 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
             $doc = $this->createDocument($user, 'public');
             $upload_name = 'A file name';
 
-        // build FileAlreadyExistsException
-
-        $ex = new FileAlreadyExistsException($upload_name, $doc);
+            $ex = new FileAlreadyExistsException($upload_name, $doc);
 
             $this->assertNotNull($ex->getDescriptor());
             $this->assertEquals(trans('errors.filealreadyexists.generic', [
-                'name' => $upload_name,
-                'title' => $doc->title
+                'name' => e($upload_name),
+                'title' => e($doc->title)
             ]), $ex->getMessage());
         
             $this->assertNull($ex->getFileVersion());
@@ -42,8 +40,8 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
             $ex = new FileAlreadyExistsException($upload_name);
 
             $this->assertEquals(trans('errors.filealreadyexists.generic', [
-                'name' => $upload_name,
-                'title' => $upload_name
+                'name' => e($upload_name),
+                'title' => e($upload_name)
             ]), $ex->getMessage());
         
             $this->assertNull($ex->getDescriptor());
@@ -70,9 +68,9 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
         $ex = new FileAlreadyExistsException('A file name', $doc);
 
         $this->assertEquals(trans('errors.filealreadyexists.in_the_network', [
-                'network' => network_name(),
-                'title' => $doc->title,
-                'institution' => $doc->institution->name
+                'network' => e(network_name()),
+                'title' => e($doc->title),
+                'institution' => e($doc->institution->name)
             ]), $ex->render($user));
     }
 
@@ -89,7 +87,7 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
         $ex = new FileAlreadyExistsException('A file name', $doc);
 
         $this->assertEquals(trans('errors.filealreadyexists.by_you', [
-                'title' => $doc->title
+                'title' => e($doc->title)
             ]), $ex->render($user));
     }
 
@@ -107,8 +105,8 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
         $ex = new FileAlreadyExistsException('A file name', $doc);
 
         $this->assertEquals(trans('errors.filealreadyexists.by_user', [
-                'user' => $user2->name,
-                'email' => $user2->email
+                'user' => e($user2->name),
+                'email' => e($user2->email)
             ]), $ex->render($user));
     }
 
@@ -130,8 +128,8 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
         $ex = new FileAlreadyExistsException('A file name', $doc);
 
         $this->assertEquals(trans('errors.filealreadyexists.incollection_by_you', [
-                'title' => $doc->title,
-                'collection' => $collection->name,
+                'title' => e($doc->title),
+                'collection' => e($collection->name),
                 'collection_link' => route('documents.groups.show', [ 'id' => $collection->id, 'highlight' => $doc->id])
             ]), $ex->render($user));
     }
@@ -155,8 +153,8 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
         $ex = new FileAlreadyExistsException('A file name', $doc);
 
         $this->assertEquals(trans('errors.filealreadyexists.incollection', [
-                'title' => $doc->title,
-                'collection' => $collection->name,
+                'title' => e($doc->title),
+                'collection' => e($collection->name),
                 'collection_link' => route('documents.groups.show', [ 'id' => $collection->id, 'highlight' => $doc->id])
             ]), $ex->render($user));
     }
@@ -169,16 +167,19 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
     public function testFileAlreadyExistsForDocumentRevisionOfUser()
     {
         $user = $this->createAdminUser();
-        $user2 = $this->createAdminUser();
+        $user2 = $this->createAdminUser(['name' => 'Ruthe O\'Keefe']);
         $doc = $this->createDocument($user2, 'private');
 
         $ex = new FileAlreadyExistsException('A file name', $doc, $doc->file);
 
         $this->assertEquals(trans('errors.filealreadyexists.revision_of_document', [
-                'title' => $doc->title,
-                'user' => $user2->name,
-                'email' => $user2->email
+                'title' => e($doc->title),
+                'user' => e($user2->name),
+                'email' => e($user2->email)
             ]), $ex->render($user));
+
+// -'The document you are uploading is an existing revision of <strong>"Vel reiciendis natus doloremque aut."</strong>, added by Ruthe O'Keefe (jewell84@hotmail.com)'
+// +'The document you are uploading is an existing revision of <strong>"Vel reiciendis natus doloremque aut."</strong>, added by Ruthe O'Keefe (jewell84@hotmail.com)'
     }
 
     /**
@@ -195,7 +196,7 @@ class FileAlreadyExistsExceptionTest extends BrowserKitTestCase
         $ex = new FileAlreadyExistsException('A file name', $doc, $doc->file);
 
         $this->assertEquals(trans('errors.filealreadyexists.revision_of_your_document', [
-                'title' => $doc->title
+                'title' => e($doc->title)
             ]), $ex->render($user));
     }
 }
