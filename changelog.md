@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Showing a proper error message if the user is trying to access a non existent file
 - Recent page not loading if user has only recent shares
 - Loading of a trashed document details panel
+- Restored share item in the context menu when searching from the projects page
 
 ## [0.18.2] 2017-11-16
 
