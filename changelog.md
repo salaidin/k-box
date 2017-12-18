@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Loading details panel of public document
 - Breadcrumbs now shows only the parent collection that the user has access to, if 
   a collection is shared
-- Loading shared page is a disabled user shared a collection with you
+- Loading shared page if a disabled user shared a collection with you
 
 ## [0.18.1] 2017-11-03
 
