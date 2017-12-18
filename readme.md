@@ -1,5 +1,5 @@
 [![pipeline status](https://git.klink.asia/main/k-box/badges/0.18/pipeline.svg)](https://git.klink.asia/main/k-box/commits/0.18) 
-![latest version](https://img.shields.io/badge/version-0.18.2-blue.svg)
+![latest version](https://img.shields.io/badge/version-0.18.3-blue.svg)
 
 # K-Box
 
