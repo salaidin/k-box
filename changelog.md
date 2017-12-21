@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.18.4] 2017-12-21
+
 ### Fixed
 
 - Public icon not shown for documents when browsing the documents
